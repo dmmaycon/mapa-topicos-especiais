@@ -7,24 +7,28 @@ public class Data {
 	private Integer month;
 
 	private Integer year;
+	
+	private Boolean valid = false;
 
 	public Data(Integer day, Integer month, Integer year) throws Exception {
 
 		if (validarData(day, month, year)) {
 
 			this.day = day;
-
 			this.month = month;
-
 			this.year = year;
-
+			this.valid = true;
 		}
 
+	}
+	
+	public boolean isValid() {
+		return this.valid;
 	}
 
 	public boolean validarData(Integer day, Integer month, Integer year) throws Exception {
 
-		if ((month < 1 && month > 12) || (day < 1 && day > 31) || (year <= 0)) {
+		if ((month < 1 || month > 12) || (day < 1 || day > 31) || (year <= 0)) {
 
 			throw new Exception("Valores para dia, mês ou ano são inválidos.");
 

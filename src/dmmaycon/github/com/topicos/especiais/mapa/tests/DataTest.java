@@ -40,7 +40,8 @@ class DataTest {
 	
 	@Test
 	void testaDataValida() throws Exception {
-		assertEquals(new Data(14, 06, 2021), true);	
+		Data data = new Data(14, 06, 2021);
+		assertEquals(data.isValid(), true);	
 	}
 
 }
